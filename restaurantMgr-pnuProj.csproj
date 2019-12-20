@@ -48,6 +48,33 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>Z:\Downloads\mysql-connector-net-8.0.18-noinstall\v4.5.2\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf">
+      <HintPath>Z:\Downloads\mysql-connector-net-8.0.18-noinstall\v4.5.2\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>Z:\Downloads\mysql-connector-net-8.0.18-noinstall\v4.5.2\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.EntityFramework">
+      <HintPath>Z:\Downloads\mysql-connector-net-8.0.18-noinstall\v4.5.2\MySql.Data.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MySQL.Data.EntityFrameworkCore">
+      <HintPath>Z:\Downloads\mysql-connector-net-8.0.18-noinstall\v4.5.2\MySQL.Data.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="MySQL.Data.EntityFrameworkCore.Design">
+      <HintPath>Z:\Downloads\mysql-connector-net-8.0.18-noinstall\v4.5.2\MySQL.Data.EntityFrameworkCore.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web">
+      <HintPath>Z:\Downloads\mysql-connector-net-8.0.18-noinstall\v4.5.2\MySql.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet">
+      <HintPath>Z:\Downloads\mysql-connector-net-8.0.18-noinstall\v4.5.2\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="SshNet.Security.Cryptography">
+      <HintPath>Z:\Downloads\mysql-connector-net-8.0.18-noinstall\v4.5.2\SshNet.Security.Cryptography.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
