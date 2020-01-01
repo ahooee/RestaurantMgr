@@ -16,10 +16,14 @@ namespace restaurantMgr_pnuProj
 {
     public partial class Form1 : Form
     {
+        Form resetForm;
 
         public Form1()
         {
             InitializeComponent();
+            resetForm = new Form2();
+            tableLayoutPanel1.Hide();
+            this.tableLayoutPanel2.Hide();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -57,7 +61,9 @@ namespace restaurantMgr_pnuProj
                 {
                     //FAGHAT BARAYE TEST
 
-                    MessageBox.Show("نام کاربری و گذرواژه صحیح است!","ورود موفق");
+                    this.flowLayoutPanel1.Hide();
+                    this.tableLayoutPanel1.Show();
+                    this.Text = "صفحه مدیر";
 
                 }
                 else{
@@ -98,6 +104,57 @@ namespace restaurantMgr_pnuProj
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+            resetForm.Show();
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.tableLayoutPanel2.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+            this.flowLayoutPanel1.Show();
+            this.tableLayoutPanel1.Hide();
+            this.Text = "صفحه ورود";
+
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

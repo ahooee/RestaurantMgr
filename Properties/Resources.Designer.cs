@@ -63,9 +63,39 @@ namespace restaurantMgr_pnuProj.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap butootn {
+            get {
+                object obj = ResourceManager.GetObject("butootn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PNUPRJ {
             get {
                 object obj = ResourceManager.GetObject("PNUPRJ", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PNUPRJ1 {
+            get {
+                object obj = ResourceManager.GetObject("PNUPRJ1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PNUPRJ11 {
+            get {
+                object obj = ResourceManager.GetObject("PNUPRJ11", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

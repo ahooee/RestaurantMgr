@@ -22,8 +22,10 @@ namespace restaurantMgr_pnuProj
 
              timer = new Timer();
 
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"linuxian.wav");
+            player.Play();
 
-            timer.Interval = 3000;
+            timer.Interval = 5000;
 
 
             timer.Start();
@@ -42,6 +44,11 @@ namespace restaurantMgr_pnuProj
 
             vorood.Show();
 
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
 
         }
     }
