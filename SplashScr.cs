@@ -39,7 +39,7 @@ namespace restaurantMgr_pnuProj
             timer.Stop();
 
 
-            Form vorood = new Form1();
+            Form vorood = new FormAsli();
             this.Hide();
 
             vorood.Show();

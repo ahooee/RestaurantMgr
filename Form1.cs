@@ -14,16 +14,18 @@ using MySql.Data.MySqlClient;
 
 namespace restaurantMgr_pnuProj
 {
-    public partial class Form1 : Form
+    public partial class FormAsli : Form
     {
         Form resetForm;
 
-        public Form1()
+        public FormAsli()
         {
             InitializeComponent();
             resetForm = new Form2();
-            tableLayoutPanel1.Hide();
-            this.tableLayoutPanel2.Hide();
+            tableMenuAsli.Hide();
+            this.tablePishkhan.Hide();
+            this.tableAshpaz.Hide();
+            this.tableSandogh.Hide();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -55,14 +57,14 @@ namespace restaurantMgr_pnuProj
                 mySqlConnection.Open();
                 MySqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlCommand.CommandType = CommandType.Text;
-                mySqlCommand.CommandText = "Select * from login where uname='" + textBox1.Text + "' and upass='" + textBox2.Text + "'";
+                mySqlCommand.CommandText = "Select * from login where uname='" + textBoxNameKarbari.Text + "' and upass='" + textBoxGozarVazhe.Text + "'";
                 MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                 if (mySqlDataReader.HasRows)
                 {
                     //FAGHAT BARAYE TEST
 
-                    this.flowLayoutPanel1.Hide();
-                    this.tableLayoutPanel1.Show();
+                    this.flowLayoutPanelVorood.Hide();
+                    this.tableMenuAsli.Show();
                     this.Text = "صفحه مدیر";
 
                 }
@@ -123,26 +125,45 @@ namespace restaurantMgr_pnuProj
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void buttonSandogh_Click(object sender, EventArgs e)
         {
+            this.tableSandogh.Show();
+            this.tablePishkhan.Hide();
+
+            this.buttonSandogh.BackColor = Color.LimeGreen;
+            this.buttonAshpazkhaneh.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
+            this.buttonPishkhan.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
+            this.buttonTanzimat.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
+        }
+
+        private void buttonPishkhan_Click(object sender, EventArgs e)
+        {
+            this.tableAshpaz.Hide();
+            this.tableSandogh.Hide();
+            this.tablePishkhan.Show();
+            this.buttonPishkhan.BackColor = Color.LimeGreen;
+            this.buttonAshpazkhaneh.BackColor = Color.FromArgb(0x2f,0x9b,0xff);
+            this.buttonSandogh.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
+            this.buttonTanzimat.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonAshpazkhaneh_Click(object sender, EventArgs e)
         {
-            this.tableLayoutPanel2.Show();
+            this.tablePishkhan.Hide();
+            this.tableAshpaz.Show();
+
+            this.buttonAshpazkhaneh.BackColor = Color.LimeGreen;
+            this.buttonPishkhan.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
+            this.buttonSandogh.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
+            this.buttonTanzimat.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonKhorooj_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-            this.flowLayoutPanel1.Show();
-            this.tableLayoutPanel1.Hide();
+            this.flowLayoutPanelVorood.Show();
+            this.tableMenuAsli.Hide();
             this.Text = "صفحه ورود";
 
 
@@ -154,6 +175,36 @@ namespace restaurantMgr_pnuProj
         }
 
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonTanzimat_Click(object sender, EventArgs e)
+        {
+            this.tablePishkhan.Hide();
+
+            this.buttonTanzimat.BackColor = Color.LimeGreen;
+            this.buttonAshpazkhaneh.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
+            this.buttonSandogh.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
+            this.buttonPishkhan.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
+        }
+
+        private void buttonTasvieh_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonAshpazkhaneh_ClientSizeChanged(object sender, EventArgs e)
         {
 
         }
