@@ -17,6 +17,7 @@ namespace restaurantMgr_pnuProj
     public partial class FormAsli : Form
     {
         Form resetForm;
+        FormTarifMoshtari formTarifMoshtari;
 
         public FormAsli()
         {
@@ -26,6 +27,10 @@ namespace restaurantMgr_pnuProj
             this.tablePishkhan.Hide();
             this.tableAshpaz.Hide();
             this.tableSandogh.Hide();
+            this.tablePishkhan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+             formTarifMoshtari = new FormTarifMoshtari();
+
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -67,8 +72,12 @@ namespace restaurantMgr_pnuProj
                     this.tableMenuAsli.Show();
                     this.Text = "صفحه مدیر";
 
+                    this.FormBorderStyle = FormBorderStyle.Sizable;
+
+
                 }
-                else{
+                else
+                {
 
 
                     MessageBox.Show("نام کاربری یا گذرواژه اشتباه است!","ورود نا موفق");
@@ -127,13 +136,16 @@ namespace restaurantMgr_pnuProj
 
         private void buttonSandogh_Click(object sender, EventArgs e)
         {
-            this.tableSandogh.Show();
             this.tablePishkhan.Hide();
+            this.tableAshpaz.Hide();
+            this.tableSandogh.Show();
 
             this.buttonSandogh.BackColor = Color.LimeGreen;
             this.buttonAshpazkhaneh.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
             this.buttonPishkhan.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
             this.buttonTanzimat.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
+            this.buttonMali.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
+
         }
 
         private void buttonPishkhan_Click(object sender, EventArgs e)
@@ -145,26 +157,34 @@ namespace restaurantMgr_pnuProj
             this.buttonAshpazkhaneh.BackColor = Color.FromArgb(0x2f,0x9b,0xff);
             this.buttonSandogh.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
             this.buttonTanzimat.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
+            this.buttonMali.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
+
 
         }
 
         private void buttonAshpazkhaneh_Click(object sender, EventArgs e)
         {
             this.tablePishkhan.Hide();
+            this.tableSandogh.Hide();
             this.tableAshpaz.Show();
 
             this.buttonAshpazkhaneh.BackColor = Color.LimeGreen;
             this.buttonPishkhan.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
             this.buttonSandogh.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
             this.buttonTanzimat.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
+            this.buttonMali.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
+
         }
 
         private void buttonKhorooj_Click(object sender, EventArgs e)
         {
-
+            this.tablePishkhan.Hide();
+            this.tableAshpaz.Hide();
+            this.tableSandogh.Hide();
             this.flowLayoutPanelVorood.Show();
             this.tableMenuAsli.Hide();
             this.Text = "صفحه ورود";
+            this.FormBorderStyle = FormBorderStyle.Fixed3D;
 
 
         }
@@ -191,12 +211,9 @@ namespace restaurantMgr_pnuProj
 
         private void buttonTanzimat_Click(object sender, EventArgs e)
         {
-            this.tablePishkhan.Hide();
 
-            this.buttonTanzimat.BackColor = Color.LimeGreen;
-            this.buttonAshpazkhaneh.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
-            this.buttonSandogh.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
-            this.buttonPishkhan.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
+
+            
         }
 
         private void buttonTasvieh_Click(object sender, EventArgs e)
@@ -205,6 +222,51 @@ namespace restaurantMgr_pnuProj
         }
 
         private void buttonAshpazkhaneh_ClientSizeChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableSandogh_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
+        private void buttonMali_Click(object sender, EventArgs e)
+        {
+            this.tablePishkhan.Hide();
+            this.tableAshpaz.Hide();
+            this.tableSandogh.Hide();
+
+            this.buttonMali.BackColor = Color.LimeGreen;
+            this.buttonAshpazkhaneh.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
+            this.buttonPishkhan.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
+            this.buttonTanzimat.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
+            this.buttonSandogh.BackColor = Color.FromArgb(0x2f, 0x9b, 0xff);
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel2_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void buttonTarifeMoshtari_Click(object sender, EventArgs e)
+        {
+            formTarifMoshtari.Show();
+        }
+
+        private void listViewMoshtariPishkhan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }
