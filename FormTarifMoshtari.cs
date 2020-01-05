@@ -12,10 +12,15 @@ namespace restaurantMgr_pnuProj
 {
     public partial class FormTarifMoshtari : Form
     {
-        public FormTarifMoshtari()
+        FormAsli formAsli;
+
+        public FormTarifMoshtari(FormAsli form)
         {
             InitializeComponent();
             this.textBoxAddress.Multiline = true;
+
+            formAsli = form;
+
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -50,10 +55,15 @@ namespace restaurantMgr_pnuProj
             amaliat.vorrodEsatr("Moshtariha","0,"+"'"+this.textBoxName.Text+"',"+ "'" + this.textBoxNameKhanevadegi.Text + "'," + "'" + this.textBoxTel.Text + "'," + "'" + this.textBoxMob.Text + "'," + "'" + this.textBoxAddress.Text + "',"+0+","+0+","+0);
 
 
+            formAsli.PishMoshtarihaLoad();
             
 
             this.Hide();
-            
+
+
+
+
+
 
         }
 
@@ -64,6 +74,19 @@ namespace restaurantMgr_pnuProj
 
         private void textBoxAddress_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void FormTarifMoshtari_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                Hide();
+
+
+            }
 
         }
     }

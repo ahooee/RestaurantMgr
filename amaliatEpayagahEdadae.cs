@@ -47,11 +47,32 @@ namespace restaurantMgr_pnuProj
         }
 
 
+        public bool vorrodEsotoonha(String jadval,String satrha ,String dadeha)
+        {
+
+            String dastoor = "INSERT INTO" + " " + jadval + "( "+ satrha + ") VALUES(" + dadeha + ")";
+
+            MySqlCommand command = mySqlConnection.CreateCommand();
+
+            command.CommandText = dastoor;
+
+            mySqlConnection.Open();
+
+            Console.WriteLine(dastoor);
+
+            command.ExecuteNonQuery();
+
+            mySqlConnection.Close();
+
+
+            return false;
+        }
+
+
         //berooz avari jadval baraye dadeye reshte'ee
         public bool stringBeroozEjadval(String jadval , String sotoon , String dadeyeJadid , String shart )
         {
-            shart = "WHERE"+" "+shart;
-            String dastoor = "UPDATE"+" "+jadval+" "+"SET"+" "+sotoon+"="+"'"+dadeyeJadid+"'"+" "+shart;
+            String dastoor = "UPDATE"+" "+jadval+" "+"SET"+" "+sotoon+"="+dadeyeJadid+" "+shart;
 
 
             MySqlCommand command = mySqlConnection.CreateCommand();
@@ -141,6 +162,258 @@ namespace restaurantMgr_pnuProj
 
             return false;
         }
+
+        public List<GhazaModel> selectGhaza(String shart)
+        {
+
+            List<GhazaModel> lists =new List<GhazaModel>();
+
+
+            String dastoor = "SELECT * from Ghazaha "+shart;
+
+            MySqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+
+            mySqlCommand.CommandText = dastoor;
+
+            mySqlConnection.Open();
+
+
+            MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+
+            String sotoonMeghdar="";
+
+            while (mySqlDataReader.Read())
+            {
+
+                GhazaModel ghazaModel = new GhazaModel();
+
+                ghazaModel.id = (int)(mySqlDataReader["id"] == DBNull.Value ? 0 : mySqlDataReader["id"]);
+                ghazaModel.naam= (String)(mySqlDataReader["naam"] == DBNull.Value ? String.Empty : mySqlDataReader["naam"]);
+                ghazaModel.gheymat =(float)( mySqlDataReader["gheymat"] == DBNull.Value ? 0 : mySqlDataReader["gheymat"]);
+                ghazaModel.vaziat = (int)(mySqlDataReader["vaziat"] == DBNull.Value ? 0 : mySqlDataReader["vaziat"]);
+
+                lists.Add(ghazaModel);
+
+            }
+
+
+            mySqlConnection.Close();
+
+
+            return  lists;
+        }
+
+
+        public List<MoshtarihaModel> selectMoshtariha(String shart)
+        {
+
+            List<MoshtarihaModel> lists = new List<MoshtarihaModel>();
+
+
+
+            String dastoor = "SELECT * from Moshtariha "+shart;
+
+            Console.WriteLine(dastoor);
+
+            MySqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+
+            mySqlCommand.CommandText = dastoor;
+
+            mySqlConnection.Open();
+
+
+            MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+
+            String sotoonMeghdar = "";
+
+            while (mySqlDataReader.Read())
+            {
+
+                MoshtarihaModel moshtarihaModal = new MoshtarihaModel();
+
+                moshtarihaModal.id = (long)(mySqlDataReader["id"] == DBNull.Value ? 0 : mySqlDataReader["id"]);
+                moshtarihaModal.naam = (String)(mySqlDataReader["naam"] == DBNull.Value ? String.Empty : mySqlDataReader["naam"]);
+                moshtarihaModal.naamKH = (String)(mySqlDataReader["naamKH"] == DBNull.Value ? String.Empty : mySqlDataReader["naamKH"]);
+                moshtarihaModal.tel = (String)(mySqlDataReader["tel"]==DBNull.Value?String.Empty: mySqlDataReader["tel"]);
+                moshtarihaModal.Mob = (String)(mySqlDataReader["Mob"] == DBNull.Value ? String.Empty : mySqlDataReader["Mob"]);
+                moshtarihaModal.address = (String)(mySqlDataReader["address"] == DBNull.Value ? String.Empty : mySqlDataReader["address"]);
+                moshtarihaModal.halateM = (int)(mySqlDataReader["halateM"] == DBNull.Value ? 0 : mySqlDataReader["halateM"]);
+                moshtarihaModal.bedehkar = (float)(mySqlDataReader["bedehkar"] == DBNull.Value ? 0 : mySqlDataReader["bedehkar"]);
+                moshtarihaModal.shomareS = (long)(mySqlDataReader["shomareS"] == DBNull.Value ? 0 : mySqlDataReader["shomareS"]);
+
+
+                lists.Add(moshtarihaModal);
+
+            }
+
+
+            mySqlConnection.Close();
+
+
+            return lists;
+        }
+
+
+
+        public List<SefareshatModel> selectSefareshat(String shart)
+        {
+
+            List<SefareshatModel> lists = new List<SefareshatModel>();
+
+
+            String dastoor = "SELECT * from Sefareshat "+shart;
+
+            MySqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+
+            mySqlCommand.CommandText = dastoor;
+
+            mySqlConnection.Open();
+
+
+            MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+
+            String sotoonMeghdar = "";
+
+            while (mySqlDataReader.Read())
+            {
+
+                SefareshatModel sefareshatModel = new SefareshatModel();
+
+                sefareshatModel.id = (long)(mySqlDataReader["id"] == DBNull.Value ? 0 : mySqlDataReader["id"]);
+                sefareshatModel.Mid = (long)(mySqlDataReader["Mid"] == DBNull.Value ? 0 : mySqlDataReader["Mid"]);
+                sefareshatModel.Kghaza = (int)(mySqlDataReader["Kghaza"] == DBNull.Value ? 0 : mySqlDataReader["Kghaza"]);
+                sefareshatModel.tedad = (int)(mySqlDataReader["tedaad"] == DBNull.Value ? 0 : mySqlDataReader["tedaad"]);
+                sefareshatModel.tarikh = (DateTime)(mySqlDataReader["tarikh"] == DBNull.Value ? 0 : mySqlDataReader["tarikh"]);
+                sefareshatModel.shomareS = (long)(mySqlDataReader["shomareS"] == DBNull.Value ? 0 : mySqlDataReader["shomareS"]);
+
+
+
+                lists.Add(sefareshatModel);
+
+            }
+
+
+            mySqlConnection.Close();
+
+
+            return lists;
+        }
+
+
+
+
+
+        public List<SandoghdarhaModael> selectSandoghdaha(String shart)
+        {
+
+            List<SandoghdarhaModael> lists = new List<SandoghdarhaModael>();
+
+
+            String dastoor = "SELECT * from Sandoghdarha "+shart;
+
+            MySqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+
+            mySqlCommand.CommandText = dastoor;
+
+            mySqlConnection.Open();
+
+
+            MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+
+            String sotoonMeghdar = "";
+
+            while (mySqlDataReader.Read())
+            {
+
+                SandoghdarhaModael sandoghdarhaModel = new SandoghdarhaModael();
+
+                sandoghdarhaModel.id = (int)(mySqlDataReader["id"] == DBNull.Value ? 0 : mySqlDataReader["id"]);
+                sandoghdarhaModel.uid = (String)(mySqlDataReader["uid"] == DBNull.Value ? String.Empty : mySqlDataReader["uid"]);
+                sandoghdarhaModel.Mid = (long)(mySqlDataReader["Mid"] == DBNull.Value ? 0 : mySqlDataReader["Mid"]);
+                sandoghdarhaModel.bedehkar = (float)(mySqlDataReader["bedehkar"] == DBNull.Value ? 0 : mySqlDataReader["bedehkar"]);
+                sandoghdarhaModel.tarikh = (DateTime)(mySqlDataReader["tarikh"] == DBNull.Value ? 0 : mySqlDataReader["tarikh"]);
+
+
+
+
+                lists.Add(sandoghdarhaModel);
+
+            }
+
+
+            mySqlConnection.Close();
+
+
+            return lists;
+        }
+
+
+        public bool HazfYekSatr(String jadval , String shart )
+        {
+
+            String dastoor = "DELETE FROM "+jadval+" "+shart;
+
+
+            MySqlCommand command = mySqlConnection.CreateCommand();
+
+            command.CommandText = dastoor;
+
+            mySqlConnection.Open();
+
+            Console.WriteLine(dastoor);
+
+            command.ExecuteNonQuery();
+
+            mySqlConnection.Close();
+
+            return false;
+        }
+
+
+
+
+
+
+
+
+        public bool ayaSatr(String jadval , String shart)
+        {
+
+            String dastoor = "SELECT * FROM "+jadval+" "+shart;
+
+            MySqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+
+            mySqlCommand.CommandText = dastoor;
+
+            mySqlConnection.Open();
+
+            MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+
+            if (mySqlDataReader.HasRows)
+            {
+
+                mySqlConnection.Close();
+
+                return true;
+
+
+
+            }
+            else
+            {
+
+                mySqlConnection.Close();
+
+
+                return false;
+
+
+            }
+
+
+        }
+
+        
 
 
 

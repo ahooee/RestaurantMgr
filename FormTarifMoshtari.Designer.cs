@@ -335,6 +335,7 @@
             this.MaximizeBox = false;
             this.Name = "FormTarifMoshtari";
             this.Text = "مشتری جدید";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormTarifMoshtari_FormClosing);
             this.Load += new System.EventHandler(this.FormTarifMoshtari_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
