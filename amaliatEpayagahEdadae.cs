@@ -411,9 +411,44 @@ namespace restaurantMgr_pnuProj
             }
 
 
+           
+
+
         }
 
-        
+        public int loginVaziat(String uname)
+        {
+            int vaziat = 0;
+
+            String dastoor = "SELECT * FROM login WHERE uname='"+uname+"'";
+
+            MySqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+
+            mySqlCommand.CommandText = dastoor;
+
+            mySqlConnection.Open();
+
+            MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+
+
+            while (mySqlDataReader.Read())
+            {
+
+                vaziat = (int)(mySqlDataReader["Ndastresi"] == DBNull.Value ? 0 : mySqlDataReader["Ndastresi"]);
+
+
+
+            }
+
+
+
+            mySqlConnection.Close();
+
+
+            return vaziat;
+        }
+
+
 
 
 

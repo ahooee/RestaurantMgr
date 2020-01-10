@@ -17,6 +17,15 @@ namespace restaurantMgr_pnuProj
     public partial class FormAsli : Form
     {
 
+        static int loginVazit = 0;
+
+        String formName = "";
+
+
+
+
+
+
         Tanzimat tanzimat;
         Form resetForm;
         FormTarifMoshtari formTarifMoshtari;
@@ -76,16 +85,93 @@ namespace restaurantMgr_pnuProj
         private void button1_Click(object sender, EventArgs e)
         {
 
+
+            loginMetod();
+
+
+
+
+            }
+
+
+
+
+        private void loginMetod()
+        {
+
+
             try
             {
-             
+
                 if (amaliat.ayaSatr("login", "where uname='" + textBoxNameKarbari.Text + "' and upass='" + textBoxGozarVazhe.Text + "'"))
                 {
-                    //FAGHAT BARAYE TEST
+
+
+                    loginVazit = amaliat.loginVaziat(textBoxNameKarbari.Text);
+                    switch (loginVazit)
+                    {
+                        case 1:
+                            {
+                                this.Text = "صفحه مدیر";
+
+                                this.buttonAshpazkhaneh.Show();
+                                this.buttonPishkhan.Show();
+                                this.buttonMali.Show();
+                                this.buttonSandogh.Show();
+
+
+                            }
+                            break;
+
+                        case 2:
+                            {
+                                this.Text = "صفحه پیشخوان";
+
+                                this.buttonAshpazkhaneh.Hide();
+                                this.buttonPishkhan.Hide();
+                                this.buttonMali.Hide();
+                                this.buttonSandogh.Hide();
+                                this.tableAshpaz.Hide();
+                                this.tableSandogh.Hide();
+                                this.tablePishkhan.Show();
+
+
+
+                            }
+                            break;
+
+                        case 3:
+                            {
+                                this.Text = "صفحه آشپزخانه";
+
+                                this.buttonAshpazkhaneh.Hide();
+                                this.buttonPishkhan.Hide();
+                                this.buttonMali.Hide();
+                                this.buttonSandogh.Hide();
+                                this.tableAshpaz.Hide();
+                                this.tableSandogh.Show();
+                                this.tablePishkhan.Hide();
+                            }
+                            break;
+                        case 4:
+                            {
+                                this.Text = "صفحه صندوقدار";
+
+                                this.buttonAshpazkhaneh.Hide();
+                                this.buttonPishkhan.Hide();
+                                this.buttonMali.Hide();
+                                this.buttonSandogh.Hide();
+                                this.tableAshpaz.Show();
+                                this.tableSandogh.Hide();
+                                this.tablePishkhan.Hide();
+                            }
+                            break;
+
+
+                    }
 
                     this.flowLayoutPanelVorood.Hide();
                     this.tableMenuAsli.Show();
-                    this.Text = "صفحه مدیر";
 
                     this.FormBorderStyle = FormBorderStyle.Sizable;
 
@@ -95,23 +181,23 @@ namespace restaurantMgr_pnuProj
                 {
 
 
-                    MessageBox.Show("نام کاربری یا گذرواژه اشتباه است!","ورود نا موفق");
+                    MessageBox.Show("نام کاربری یا گذرواژه اشتباه است!", "ورود نا موفق");
 
 
                 }
-               
+
 
                 Console.WriteLine(" ANJAM SHOD!");
 
             }
             catch (Exception exeption)
             {
-                Console.WriteLine("vasl nashod ke : {0}",exeption);
+                Console.WriteLine("vasl nashod ke : {0}", exeption);
             }
 
 
 
-            }
+        }
 
         private void label3_Click(object sender, EventArgs e)
         {
